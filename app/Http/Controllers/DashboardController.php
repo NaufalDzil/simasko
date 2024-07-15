@@ -12,28 +12,27 @@ use App\Models\User;
 class DashboardController extends Controller
 {
     public function index()
-    {
-        // Menghitung jumlah total semua barang
-        $totalJumlahSemuaBarang = DaftarBarang::sum('jumlah');
-        $user = auth()->user();
+{
+    // Menghitung jumlah total semua barang
+    $totalJumlahSemuaBarang = DaftarBarang::sum('jumlah');
+    $user = auth()->user();
 
-        // Menghitung jumlah total karyawan
-        $jumlahKaryawan = Karyawan::count();
+    // Menghitung jumlah total karyawan
+    $jumlahKaryawan = Karyawan::count();
 
-        //Menghitung jumlah total servis
-        $jumlahServis = ServisMasuk::count();
+    // Menghitung jumlah total servis
+    $jumlahServis = ServisMasuk::count();
 
-        $dBarang = DaftarBarang::latest()->get();
-        
-        if ($user && $user->id_role === 1) {
-            $jumlahSupplier = Supplier::count(); // Menghitung jumlah supplier
-            return view('dashboard', compact('jumlahSupplier', 'totalJumlahSemuaBarang', 'jumlahKaryawan', 'jumlahServis', 'dBarang'));
-        }
+    // Ambil beberapa barang terbaru atau dengan kriteria tertentu
+    $jumlahBarang = DaftarBarang::orderBy('created_at', 'desc')->take(5)->get();
 
-        // Tambahkan logika lainnya jika pengguna bukan admin
-        $jumlahSupplier = Supplier::count();
-        return view('dashboard2', compact('jumlahSupplier', 'totalJumlahSemuaBarang', 'jumlahServis', 'dBarang'));
-
-        
+    if ($user && $user->id_role === 1) {
+        $jumlahSupplier = Supplier::count(); // Menghitung jumlah supplier
+        return view('dashboard', compact('jumlahSupplier', 'totalJumlahSemuaBarang', 'jumlahKaryawan', 'jumlahServis', 'jumlahBarang'));
     }
+
+    // Tambahkan logika lainnya jika pengguna bukan admin
+    $jumlahSupplier = Supplier::count();
+    return view('dashboard2', compact('jumlahSupplier', 'totalJumlahSemuaBarang', 'jumlahServis', 'jumlahBarang'));
+}
 }

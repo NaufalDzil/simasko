@@ -1,117 +1,148 @@
 @extends('layouts.app')
 
-@section('title', 'Dashoard')
+@section('title', 'Dashboard')
 @section('breadcrumb')
     @parent
-    <li class="breadcrumb-item active">Dashboard</a></li>
+    <li class="breadcrumb-item active">Dashboard</li>
 @endsection
 
 @section('content')
     <!-- Small boxes (Stat box) -->
-<div class="row">
-    <div class="col-lg-3 col-6">
-      <!-- small box -->
-      <div class="small-box bg-info">
-        <div class="inner">
-          <h3>{{ $jumlahSupplier }}</h3>
-
-          <p>Supplier</p>
-        </div>
-        <div class="icon">
-          <i class="fas fa-truck"></i>
-        </div>
-        <a href="{{ route('supplier.index') }}" class="small-box-footer"> <i class="fas fa-angle-up"></i></a>
-      </div>
-    </div>
-    <!-- ./col -->
-    <div class="col-lg-3 col-6">
-      <!-- small box -->
-      <div class="small-box bg-success">
-        <div class="inner">
-          <h3>{{ $totalJumlahSemuaBarang }}</h3>
-
-          <p>Stok Barang</p>
-        </div>
-        <div class="icon">
-          <i class="fas fa-boxes"></i>
-        </div>
-        <a href="{{ route('dbarang.index') }}" class="small-box-footer"> <i class="fas fa-angle-up"></i></a>
-      </div>
-    </div>
-    <!-- ./col -->
-    <div class="col-lg-3 col-6">
-      <!-- small box -->
-      <div class="small-box bg-warning">
-        <div class="inner">
-          <h3>{{ $jumlahKaryawan }}</h3>
-
-          <p>Karyawan</p>
-        </div>
-        <div class="icon">
-          <i class="ion ion-person-add"></i>
-        </div>
-        <a href="{{ route('karyawan.index') }}" class="small-box-footer"> <i class="fas fa-angle-up"></i></a>
-      </div>
-    </div>
-    <!-- ./col -->
-    <div class="col-lg-3 col-6">
-      <!-- small box -->
-      <div class="small-box bg-danger">
-        <div class="inner">
-          <h3>{{ $jumlahServis }}</h3>
-
-          <p>Servis</p>
-        </div>
-        <div class="icon">
-          <i class="fas fa-screwdriver"></i>
-        </div>
-        <a href="{{ route('servismasuk.index')}}" class="small-box-footer"> <i class="fas fa-angle-up"></i></a>
-      </div>
-    </div>
-
-<!-- /.row -->
-<!-- Main row -->
-<div class="row">
-    <!-- Left col -->
-    <section class="col-lg-12 connectedSortable">
-      <!-- Custom tabs (Charts with tabs)-->
-      {{-- <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">
-            <i class="fas fa-chart-pie mr-1"></i>
-            Sales
-          </h3>
-          <div class="card-tools">
-            <ul class="nav nav-pills ml-auto">
-              <li class="nav-item">
-                <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Area</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#sales-chart" data-toggle="tab">Donut</a>
-              </li>
-            </ul>
-          </div>
-        </div><!-- /.card-header -->
-        <div class="card-body">
-          <div class="tab-content p-0">
-            <!-- Morris chart - Sales -->
-            <div class="chart tab-pane active" id="revenue-chart"
-                 style="position: relative; height: 300px;">
-                <canvas id="revenue-chart-canvas" height="300" style="height: 300px;"></canvas>
-             </div>
-            <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;">
-              <canvas id="sales-chart-canvas" height="300" style="height: 300px;"></canvas>
+    <div class="row">
+        <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+                <div class="inner">
+                    <h3>{{ $jumlahSupplier }}</h3>
+                    <p>Supplier</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-truck"></i>
+                </div>
+                <a href="{{ route('supplier.index') }}" class="small-box-footer"><i class="fas fa-angle-up"></i></a>
             </div>
-          </div>
-        </div><!-- /.card-body -->
-      </div> --}}
-      <!-- /.card -->
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+                <div class="inner">
+                    <h3>{{ $totalJumlahSemuaBarang }}</h3>
+                    <p>Stok Barang</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-boxes"></i>
+                </div>
+                <a href="{{ route('dbarang.index') }}" class="small-box-footer"><i class="fas fa-angle-up"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+                <div class="inner">
+                    <h3>{{ $jumlahKaryawan }}</h3>
+                    <p>Karyawan</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-person-add"></i>
+                </div>
+                <a href="{{ route('karyawan.index') }}" class="small-box-footer"><i class="fas fa-angle-up"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+                <div class="inner">
+                    <h3>{{ $jumlahServis }}</h3>
+                    <p>Servis</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-screwdriver"></i>
+                </div>
+                <a href="{{ route('servismasuk.index')}}" class="small-box-footer"><i class="fas fa-angle-up"></i></a>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
 
+    <!-- Main row -->
+    <div class="row">
+        <!-- Left col -->
+        <div class="col-lg-12">
+            <!-- Tabel Daftar Barang -->
+            {{-- <div class="card">
+                <div class="card-body table-responsive p-0">
+                    <table class="table table-hover text-nowrap">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Kode Barang</th>
+                                <th>Nama Barang</th>
+                                <th>Kategori</th>
+                                <th>Jumlah</th>
+                                <th>Harga</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($jumlahBarang as $barang)
+                                <tr>
+                                    <td>{{ $barang->id }}</td>
+                                    <td>{{ $barang->kd_barang }}</td>
+                                    <td>{{ $barang->nama }}</td>
+                                    <td>{{ $barang->kategoribarang->nama_kategori }}</td>
+                                    <td>{{ $barang->jumlah }}</td>
+                                    <td>{{ $barang->harga_beli }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div> --}}
+          <div class="card">
+            <div class="card-body">
+              <table class="table table-hover table-striped">
+                <thead>
+                  <th width = "5%" class="text-center">No</th>
+                  <th width = "15%" class="text-center">Kode Barang</th>
+                  <th class="text-center">Kategori</th>
+                  <th class="text-center">Supplier</th>
+                  <th class="text-center">Nama Barang</th>
+                  <th class="text-center">Jumlah</th>
+                  <th class="text-center">Satuan</th>
+                  <th class="text-center">Harga Beli</th>
+                </thead>
+                <tbody>
+                  @foreach ($jumlahBarang as $key => $item)
+                      <tr>
+                        <td class="text-center">{{ $key + 1 }}</td>
+                        <td class="text-center">{{ $item->kd_barang }}</td>
+                        <td>{{ $item->kategoribarang->nama_kategori }}</td>
+                        <td>{{ $item->supplier->nama }}</td>
+                        <td>{{ $item->nama }}</td>
+                        <td class="text-center">{{ $item->jumlah ?? '0' }}</td>
+                        <td>{{ $item->satuan }}</td>
+                        <td>{{ 'Rp ' . number_format($item->harga_beli, 0, ',', '.') }}</td>
+                        
+                      </tr>
+                  @endforeach
+                </tbody>
+              </table>
+            </div>
 
-      <!-- /.card -->
-    </section>
-    <!-- /.Left col -->
-    
-</div>
-  <!-- /.row (main row) -->
+            <!-- /.card -->
+        </div>
+        <!-- /.Left col -->
+      </div>
+    </div>
+    <!-- /.row (main row) -->
 @endsection
+
+@push('script')
+
+<script>
+  $('.table').DataTable()
+</script>
+@endpush
