@@ -56,7 +56,7 @@
                       </div>
                         
                         <div class="form-group">
-                            <label for="password">Password</label>
+                            <label for="password">Password Baru</label>
                             <input type="password" name="password" class="form-control" id="password" placeholder="Password">
                             @if($errors->has('password'))
                                 <div class="text-danger mt-2">
@@ -65,7 +65,7 @@
                             @endif
                         </div>
                         <div class="form-group">
-                            <label for="password_confirmation">Konfirmasi Password</label>
+                            <label for="password_confirmation">Konfirmasi Password Baru</label>
                             <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" placeholder="Konfirmasi Password">
                             @if($errors->has('password_confirmation'))
                                 <div class="text-danger mt-2">
