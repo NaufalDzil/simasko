@@ -14,22 +14,25 @@
         <a href="{{ route('servismasuk.create') }}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Tambah Servis Baru</a>
       </div>
       <div class="card-body">
-        <table class="table table-bordered table-hover table-striped">
-          <thead>
-            <th width = "5%" class="text-center">No</th>
-            <th>Kategori Servis</th>
-            <th>Nama Pelanggan</th>
-                            <th>No Telepon</th>
-                            <th>Nama Unit</th>
-                            <th>Nomor Unit</th>
-                            <th>Keluhan</th>
-                            <th>Status</th>
-                            <th>Nama Teknisi</th>
-                            <th>Tanggal Masuk</th>
-                            <th>Aksi</th>
-          </thead>
-          <tbody>
-            @foreach ($servismasuk as $key => $row)
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover table-striped">
+            <thead>
+              <tr>
+                <th width="5%" class="text-center">No</th>
+                <th>Kategori Servis</th>
+                <th>Nama Pelanggan</th>
+                <th>No Telepon</th>
+                <th>Nama Unit</th>
+                <th>Nomor Unit</th>
+                <th>Keluhan</th>
+                <th>Status</th>
+                <th>Nama Teknisi</th>
+                <th>Tanggal Masuk</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach ($servismasuk as $key => $row)
                 <tr>
                   <td>{{ $key + 1 }}</td>
                   <td>{{ $row->kategori_servis }}</td>
@@ -45,17 +48,19 @@
                     <a href="{{ route('servismasuk.edit', $row->id) }}" class="btn btn-info btn-sm"><i class="fas fa-edit"></i></a>
                     <!-- Tombol untuk menampilkan modal -->
                     <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#confirmDeleteModal" data-url="{{ route('servismasuk.destroy', $row->id) }}">
-                        <i class="fas fa-trash"></i>
+                      <i class="fas fa-trash"></i>
                     </button>
-                </td>
+                  </td>
                 </tr>
-            @endforeach
-          </tbody>
-        </table>
+              @endforeach
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
 
 @include('servismasuk.modal-delete')
 

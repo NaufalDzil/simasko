@@ -6,7 +6,7 @@
         <div class="card-body login-card-body">
             <div class="login-logo">
                 <a href="{{ url('/') }}">
-                    <img style="vertical-align: middle; margin-bottom: 15px;" src="{{ asset('/AdminLTE/dist/img/AdminLTELogo.png') }}" alt="logo.png" width="65">
+                    <img style="vertical-align: middle; margin-bottom: 15px;" src="{{ asset('/AdminLTE/dist/img/AdminLTELogo1.png') }}" alt="logo.png" width="65">
                     <p style="font-size: 16px;">Sistem Informasi Manajemen Servis Komputer</p>
                 </a>
             </div>
