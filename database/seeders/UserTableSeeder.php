@@ -13,7 +13,7 @@ class UserTableSeeder extends Seeder
     public function run(): void
     {
         // Membuat beberapa pengguna acak
-        User::factory(5)->create();
+        User::factory(1)->create();
 
         // Membuat pengguna administrator
         $admin = User::first();

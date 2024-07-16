@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nomor_hp');
             $table->string('nama_unit');
             $table->string('nomor_unit')->nullable();
-            $table->timestamp('tanggal_masuk');
+            $table->timestamp('tanggal_masuk')->default(now());
             $table->text('keluhan');
             $table->string('nama_teknisi');
             $table->enum('status', ['Dalam antrian', 'Pengecekan', 'Pengerjaan', 'Selesai'])

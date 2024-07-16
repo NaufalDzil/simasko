@@ -47,7 +47,7 @@
 
                     <div class="form-group">
                         <label for="gaji">Gaji</label>
-                        <input type="text" name="gaji" class="form-control" id="gaji" value="{{ $karyawan->gaji }}" required>
+                        <input type="number" name="gaji" class="form-control" id="gaji" value="{{ $karyawan->gaji }}" required>
                         @if($errors->has('gaji'))
                             <div class="text-danger">
                                 {{ $errors->first('gaji') }}

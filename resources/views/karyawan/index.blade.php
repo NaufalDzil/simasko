@@ -33,7 +33,7 @@
                           <td>{{ $row->nama_karyawan }}</td>
                           <td>{{ $row->no_telepon }}</td>
                           <td>{{ $row->alamat }}</td>
-                          <td>{{ $row->gaji }}</td>
+                          <td>{{ 'Rp ' . number_format($row->gaji, 0, ',', '.') }}</td>
                           <td>
                               @if ($row->foto)
                               <img src="{{ asset('storage/foto/' . $row->foto) }}" alt="Foto Karyawan" style="width: auto; height: auto; max-width: 160px; max-height: 120px;">

@@ -46,7 +46,7 @@
 
                     <div class="form-group">
                         <label>Gaji:</label>
-                        <input type="text" name="gaji" class="form-control" required>
+                        <input type="number" name="gaji" class="form-control" required>
                     </div>
 
                     <div class="form-group">
