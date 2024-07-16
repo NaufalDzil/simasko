@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 use App\Http\Controllers\{
     DashboardController,
     KategoriBarangController,
@@ -12,11 +14,17 @@ use App\Http\Controllers\{
     BarangKeluarController,
     ServisMasukController
 };
-use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return redirect('/login');
 });
+
+Route::post('/logout', function (Request $request) {
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+    auth()->logout();
+    return redirect('/');
+})->name('logout');
 
 Route::group([
     'middleware' => ['auth', 'role:admin,karyawan']
