@@ -7,22 +7,35 @@ use App\Models\KategoriServis;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 Use App\Models\Karyawan;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class ServisMasukController extends Controller
 {
     public function index()
     {
-        $karyawan = Karyawan::all();
-        $servismasuk = ServisMasuk::paginate(10);
-        return view('servismasuk.index', compact('servismasuk','karyawan'));
+        $user = Auth::user();
+        $userName = $user->name;
+
+        // Jika pengguna adalah "Admin", ambil semua data
+        if ($userName == 'Admin') {
+            $servismasuk = ServisMasuk::orderBy('id', 'desc')->get();
+        } else {
+            // Jika bukan "Admin", ambil data yang sesuai dengan nama teknisi
+            $servismasuk = ServisMasuk::where('nama_teknisi', $userName)
+                ->orderBy('id', 'desc')
+                ->get();
+        }
+
+        return view('servismasuk.index', compact('servismasuk'));
     }
 
     public function create()
     {
+        $users = User::whereNotIn('name', ['Karyawan', 'Admin'])->get();
         $kategori = KategoriServis::all();
-        $karyawan = Karyawan::all();
 
-        return view('servismasuk.create', compact('kategori','karyawan'));
+        return view('servismasuk.create', compact('kategori','users'));
     }
 
     public function store(Request $request)
@@ -47,9 +60,9 @@ class ServisMasukController extends Controller
     public function edit(ServisMasuk $servismasuk)
     {
         $kategori = KategoriServis::all();
-        $karyawan = Karyawan::all();
+        $users = User::whereNotIn('name', ['Karyawan', 'Admin'])->get();
 
-        return view('servismasuk.edit', compact('kategori','karyawan'), [
+        return view('servismasuk.edit', compact('kategori','users'), [
             'title' => 'Edit Servis Masuk',
             'servismasuk' => $servismasuk,
         ]);

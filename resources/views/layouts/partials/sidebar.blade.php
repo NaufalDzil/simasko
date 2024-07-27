@@ -70,7 +70,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-boxes"></i>
               <p>
-                Gudang
+                Transaksi Barang
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>

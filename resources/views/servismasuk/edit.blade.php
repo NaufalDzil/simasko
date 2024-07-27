@@ -69,8 +69,8 @@
                     <div class="form-group">
                         <label>Nama Teknisi:</label>
                         <select name="nama_teknisi" id="nama_teknisi" class="form-control">
-                          @foreach ($karyawan as $item)
-                          <option value="{{ $item->nama_karyawan }}">{{ $item->nama_karyawan }}</option>
+                          @foreach ($users as $item)
+                          <option value="{{ $item->name }}">{{ $item->name }}</option>
                           @endforeach
                         </select>
                     </div>
@@ -87,6 +87,9 @@
                             @endif
                             @if($servismasuk->status != 'Pengerjaan')
                                 <option value="Pengerjaan">Pengerjaan</option>
+                            @endif
+                            @if($servismasuk->status != 'Selesai')
+                                <option value="Selesai">Selesai</option>
                             @endif
                         </select>
                     </div>

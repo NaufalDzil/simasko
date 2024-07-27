@@ -72,8 +72,8 @@
                   <div class="form-group">
                     <label>Nama Teknisi:</label>
                     <select name="nama_teknisi" id="nama_teknisi" class="form-control">
-                      @foreach ($karyawan as $item)
-                      <option value="{{ $item->nama_karyawan }}">{{ $item->nama_karyawan }}</option>
+                      @foreach ($users as $item)
+                      <option value="{{ $item->name }}">{{ $item->name }}</option>
                       @endforeach
                     </select>
                 </div>
@@ -84,6 +84,7 @@
                         <option value="Dalam antrian">Dalam Antrian</option>
                         <option value="Pengecekan">Pengecekan</option>
                         <option value="Pengerjaan">Pengerjaan</option>
+                        <option value="Selesai">Selesai</option>
                       </select>
                 </div>
 
